@@ -44,6 +44,9 @@ try:
             os.system("johncena.mp3")
         elif(i=='phani' or i=='friend'):
             os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
+        elif(i=='hi'):
+            engine.say(" hii dude, How are you")
+            engine.runAndWait()
     
 
 
