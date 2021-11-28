@@ -55,9 +55,14 @@ try:
             engine.say('okay i am exiting..... bye bye, have a good day')
             engine.runAndWait()
             exit()
-    else:
-        engine.say("ooh shit, i don't have that.....MAN!!!")
-        engine.runAndWait()
+        
+        
+        
+        
+        
+        else:
+            engine.say("oooooooooooh shit, i don't have that mannnnn!!!")
+            engine.runAndWait()
     
 
 
