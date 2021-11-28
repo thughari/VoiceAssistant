@@ -56,8 +56,9 @@ try:
             engine.runAndWait()
             exit()
     else:
-        engine.say("oooooooooooh shit, i don't have that mannnnn!!!")
+        engine.say("ooooooh shit, i don't have that mannnnn!!!");os.system(r"C:\Users\harib\Downloads\404.png")
         engine.runAndWait()
+        
     
 
 
