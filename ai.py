@@ -47,6 +47,7 @@ try:
         elif(i=='hi'):
             engine.say(" hii dude, How are you")
             engine.runAndWait()
+            print('hello')
     
 
 
