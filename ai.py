@@ -42,6 +42,8 @@ try:
             engine.say("AND his name is JOHN CENA, YOU can't see me")
             engine.runAndWait()
             os.system("johncena.mp3")
+        elif(i=='phani' or i=='friend'):
+            os.system("start chrome youtu.be/AE8eBai0lEk&t=1h51m13s")
     
 
 
