@@ -16,7 +16,8 @@ try:
     engine.say(audio)
     txt=r.recognize_google(audio)
     print(txt)
-
+    engine.say(f'you said {txt}')
+    engine.runAndWait()
     ret=txt.lower()
     print(ret)
     text=(ret.split())
@@ -44,15 +45,28 @@ try:
             os.system("johncena.mp3")
         elif(i=='phani' or i=='friend'):
             os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
-        elif(i=='hi'):
+        elif(i=='hi' or i=='hai' or i=='hello'):
             engine.say(" hii dude, How are you")
             engine.runAndWait()
+        elif(i=='you'):
+            engine.say('i am edith.............your personal assistant')
+            engine.runAndWait()
+        elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
+            engine.say('okay i am exiting..... bye bye, have a good day')
+            engine.runAndWait()
+            exit()
+    else:
+        engine.say("ooh shit, i don't have that.....MAN!!!")
+        engine.runAndWait()
     
 
 
 
-except:
-    engine.say("you said nothing or i didn't heard you")
+except sr.UnknownValueError:
+    engine.say('''you said nothing 
+    or  i didn't heard you
+    sooo
+    i am quitting''')
     engine.runAndWait()
 
 
