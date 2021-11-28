@@ -37,13 +37,13 @@ try:
             os.system('start whatsapp')
         elif(i=='spider' or i=='peter'):
             os.system(r'C:\Users\harib\Downloads\spidy.jpg')
-        elif(i=='john'):
+        elif(i=='john' or i=='cena' or i=='johncena'):
             engine.setProperty('voice',voices[0].id)
             engine.say("AND his name is JOHN CENA, YOU can't see me")
             engine.runAndWait()
             os.system("johncena.mp3")
         elif(i=='phani' or i=='friend'):
-            os.system("start chrome youtu.be/AE8eBai0lEk&t=1h51m13s")
+            os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
     
 
 
