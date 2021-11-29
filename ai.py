@@ -35,8 +35,8 @@ try:
         elif(i=='github'):
             os.system('start github')
         elif(i=='whatsapp'):
-            os.system('start whatsapp')
-        elif(i=='spider' or i=='peter'):
+            os.system('start chrome web.whatsapp.com')
+        elif(i=='spider' or i=='peter' or i=='parker'):
             os.system(r'C:\Users\harib\Downloads\spidy.jpg')
         elif(i=='john' or i=='cena' or i=='johncena'):
             engine.setProperty('voice',voices[0].id)
@@ -60,7 +60,6 @@ try:
         engine.runAndWait()
         
     
-
 
 
 except sr.UnknownValueError:
