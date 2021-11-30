@@ -26,7 +26,7 @@ try:
     for i in text:
         if(i=='youtube'):
             os.system('start chrome youtube.com')
-        elif(i=='closer'):
+        elif(i=='closer' or i=='song'):
             os.system('start chrome youtu.be/PT2_F-1esPk')
         elif(i=='chrome'):
             os.system('start chrome')
