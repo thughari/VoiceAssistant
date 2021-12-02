@@ -1,10 +1,12 @@
 import os
+import random
 import speech_recognition as sr
 import pyttsx3
 import datetime
 
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
+print(voices)
 engine.setProperty('voice',voices[1].id)
 engine.setProperty('rate',170)
 r=sr.Recognizer()
@@ -15,15 +17,26 @@ try:
         audio=r.listen(source)
     engine.say(audio)
     txt=r.recognize_google(audio)
+    res=txt.lower()
+    ret=res.split()
+    nums=[]
+    chars=[]
+    for i in range(len(ret)):
+        if(ret[i].isdigit()):
+            nums.append(int(ret[i]))
+        else:
+            chars.append(ret[i])
+
     print(txt)
+    print(chars,nums)
     engine.say(f'you said {txt}')
     engine.runAndWait()
-    ret=txt.lower()
-    print(ret)
-    text=(ret.split())
+    
+    print(ret,chars)
+    
 
-    print(text)
-    for i in text:
+    print(chars)
+    for i in chars:
         if(i=='youtube'):
             os.system('start chrome youtube.com')
         elif(i=='closer' or i=='song'):
@@ -49,15 +62,19 @@ try:
             engine.say(" hii dude, How are you")
             engine.runAndWait()
         elif(i=='you'):
-            engine.say('i am edith.............your personal assistant')
+            engine.say('i am edith.............your personal voice assistant')
             engine.runAndWait()
+        elif(i=='pick' or i=='random' or i=='number'):
+            rnd=random.randint(nums[-2],nums[-1])
+            engine.say(f'i am picking {rnd}')
+            engine.runAndWait()
+            break
+
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
             engine.runAndWait()
             exit()
-    else:
-        engine.say("ooooooh shit, i don't have that mannnnn!!!");os.system(r"C:\Users\harib\Downloads\404.png")
-        engine.runAndWait()
+    
         
     
 
