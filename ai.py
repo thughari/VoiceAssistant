@@ -27,15 +27,13 @@ try:
         else:
             chars.append(ret[i])
 
-    print(txt)
-    print(chars,nums)
+    
     engine.say(f'you said {txt}')
     engine.runAndWait()
     
-    print(ret,chars)
+    print(f'{txt}\n{ret}\n{chars}\n{nums}')
     
 
-    print(chars)
     for i in chars:
         if(i=='youtube'):
             os.system('start chrome youtube.com')
