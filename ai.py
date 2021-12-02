@@ -65,10 +65,15 @@ try:
             engine.say('i am edith.............your personal voice assistant')
             engine.runAndWait()
         elif(i=='pick' or i=='random' or i=='number'):
-            rnd=random.randint(nums[-2],nums[-1])
-            engine.say(f'i am picking {rnd}')
-            engine.runAndWait()
-            break
+            try:
+                rnd=random.randint(nums[-2],nums[-1])
+                engine.say(f'i am picking {rnd}')
+                engine.runAndWait()
+                break
+            except IndexError:
+                engine.say('you should mention a range here to pic a random number')
+                engine.runAndWait()
+                break
 
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
