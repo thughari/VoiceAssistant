@@ -33,84 +33,82 @@ try:
     print(f'{txt}\n{ret}\n{chars}\n{nums}')
     
 
-    for i in chars:
-        if(i=='youtube'):
-            os.system('start chrome youtube.com')
-        elif(i=='closer' or i=='song'):
-            os.system('start chrome youtu.be/PT2_F-1esPk')
-        elif(i=='chrome'):
-            os.system('start chrome')
-        elif(i=='brave'):
-            os.system('start brave')
-        elif(i=='github'):
-            os.system('start github')
-        elif(i=='whatsapp'):
-            os.system('start chrome web.whatsapp.com')
-        elif(i=='spider' or i=='peter' or i=='parker' or i=='spiderman'):
-            os.system(r'C:\Users\harib\Downloads\spidy.jpg')
-        elif(i=='john' or i=='cena' or i=='johncena'):
-            engine.setProperty('voice',voices[0].id)
-            engine.say("AND his name is JOHN CENA, YOU can't see me")
+
+    if('youtube' in chars):
+        os.system('start chrome youtube.com')
+    elif(i=='closer' or i=='song'):
+        os.system('start chrome youtu.be/PT2_F-1esPk')
+    elif('chrome' in chars):
+        os.system('start chrome')
+    elif('brave' in chars):
+        os.system('start brave')
+    elif('github' in chars):
+        os.system('start github')
+    elif('whatsapp' in chars):
+        os.system('start chrome web.whatsapp.com')
+    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars):
+        os.system(r'C:\Users\harib\Downloads\spidy.jpg')
+    elif('john' in chars or 'cena' in chars or 'johncena' in chars):
+        engine.setProperty('voice',voices[0].id)
+        engine.say("AND his name is JOHN CENA, YOU can't see me")
+        engine.runAndWait()
+        os.system(r"C:\Users\harib\Downloads\john.mp4")
+    elif('phani' in chars or 'friend' in chars):
+        os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
+    elif('hi' in chars or 'hai' in chars or 'hello' in chars):
+        engine.say(" hii dude, How are you")
+        engine.runAndWait()
+    elif('you' in chars or 'who' in chars):
+        engine.say('i am edith.............your personal voice assistant')
+        engine.runAndWait()
+    elif('pick' in chars or 'random' in chars or 'number' in chars):
+        try:
+            rnd=random.randint(nums[-2],nums[-1])
+            engine.say(f'i am picking {rnd}')
             engine.runAndWait()
-            os.system(r"C:\Users\harib\Downloads\john.mp4")
-        elif(i=='phani' or i=='friend'):
-            os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
-        elif(i=='hi' or i=='hai' or i=='hello'):
-            engine.say(" hii dude, How are you")
+        except IndexError:
+            engine.say('you should mention a range here to pic a random number')
             engine.runAndWait()
-        elif(i=='you' or i=='who'):
-            engine.say('i am edith.............your personal voice assistant')
+    elif('sum' in chars):
+        s=sum(nums)
+        engine.say(f'the sum is {s}')
+        engine.runAndWait()
+    elif('divide' in chars or 'division' in chars):
+        try:
+            div=nums[-2]/nums[-1]
+            engine.say(f'the division is {div}')
             engine.runAndWait()
-        elif(i=='pick' or i=='random' or i=='number'):
-            try:
-                rnd=random.randint(nums[-2],nums[-1])
-                engine.say(f'i am picking {rnd}')
-                engine.runAndWait()
-                break
-            except IndexError:
-                engine.say('you should mention a range here to pic a random number')
-                engine.runAndWait()
-                break
-        elif(i=='sum'):
-            s=sum(nums)
-            engine.say(f'the sum is {s}')
+        except ZeroDivisionError:
+            engine.say("you can't devide a number with 0")
             engine.runAndWait()
-        elif(i=='divide' or i=='division'):
-            try:
-                div=nums[-2]/nums[-1]
-                engine.say(f'the division is {div}')
-                engine.runAndWait()
-            except ZeroDivisionError:
-                engine.say("you can't devide a number with 0")
-                engine.runAndWait()
-        elif(i=='subtraction' or i=='subtract'):
-            sub=nums[-1]-nums[-2]
-            engine.say(f'the result of subtraction is {sub}')
+    elif('subtraction' in chars or 'subtract' in chars):
+        sub=nums[-1]-nums[-2]
+        engine.say(f'the result of subtraction is {sub}')
+        engine.runAndWait()
+    elif('difference' in chars):
+        diff=abs(nums[-1]-nums[-2])
+        engine.say(f'the difference of the numbers id {diff}')
+        engine.runAndWait()
+    elif('today' in chars or 'date' in chars):
+        today = datetime.date.today()
+        engine.say(f"today's date is {today}")
+        engine.runAndWait()
+    elif('time' in chars):
+        time=datetime.datetime.now()
+        if(time.hour>12):
+            engine.say(f"the time is {time.hour-12}:{time.minute}")
             engine.runAndWait()
-        elif(i=='difference'):
-            diff=abs(nums[-1]-nums[-2])
-            engine.say(f'the difference of the numbers id {diff}')
+        else:
+            engine.say(f"the time is {time.hour}:{time.minute}")
             engine.runAndWait()
-        elif(i=='today' or i=='date'):
-            today = datetime.date.today()
-            engine.say(f"today's date is {today}")
-            engine.runAndWait()
-        elif(i=='time'):
-            time=datetime.datetime.now()
-            if(time.hour>12):
-                engine.say(f"the time is {time.hour-12}:{time.minute}")
-                engine.runAndWait()
-            else:
-                engine.say(f"the time is {time.hour}:{time.minute}")
-                engine.runAndWait()
-        elif(i=='mail' or i=='gmail'):
-            os.system('start chrome mail.google.com')
-        
-        elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
-            engine.say('okay i am exiting..... bye bye, have a good day')
-            engine.runAndWait()
-            exit()
-        
+    elif('mail' in chars or 'gmail' in chars):
+        os.system('start chrome mail.google.com')
+    
+    elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars):
+        engine.say('okay i am exiting..... bye bye, have a good day')
+        engine.runAndWait()
+        exit()
+    
     
         
 except sr.RequestError:
