@@ -46,7 +46,7 @@ try:
             os.system('start github')
         elif(i=='whatsapp'):
             os.system('start chrome web.whatsapp.com')
-        elif(i=='spider' or i=='peter' or i=='parker'):
+        elif(i=='spider' or i=='peter' or i=='parker' or i=='spiderman'):
             os.system(r'C:\Users\harib\Downloads\spidy.jpg')
         elif(i=='john' or i=='cena' or i=='johncena'):
             engine.setProperty('voice',voices[0].id)
@@ -58,7 +58,7 @@ try:
         elif(i=='hi' or i=='hai' or i=='hello'):
             engine.say(" hii dude, How are you")
             engine.runAndWait()
-        elif(i=='you'):
+        elif(i=='you' or i=='who'):
             engine.say('i am edith.............your personal voice assistant')
             engine.runAndWait()
         elif(i=='pick' or i=='random' or i=='number'):
@@ -108,8 +108,9 @@ try:
     
         
 except sr.RequestError:
+    print('you are not connected to network')
     engine.say('you are not connected to the nertwork')
-    engine.runAndWait()   
+    engine.runAndWait()
 
 
 except sr.UnknownValueError:
