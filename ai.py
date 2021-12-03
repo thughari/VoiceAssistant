@@ -89,18 +89,22 @@ try:
         diff=abs(nums[-1]-nums[-2])
         engine.say(f'the difference of the numbers id {diff}')
         engine.runAndWait()
+    elif('time' and 'date' in chars):
+        today=datetime.datetime.today()
+        date=today.date()
+        time=today.time()
+        print(today,date,time)
+        engine.say(f"today's date is {date} and time is {time.hour-12 if time.hour>12 else time.hour} hours {time.minute} minutes {'PM' if time.hour>12 else 'AM'}")
+        engine.runAndWait()
     elif('today' in chars or 'date' in chars):
         today = datetime.date.today()
         engine.say(f"today's date is {today}")
         engine.runAndWait()
     elif('time' in chars):
         time=datetime.datetime.now()
-        if(time.hour>12):
-            engine.say(f"the time is {time.hour-12}:{time.minute} PM")
-            engine.runAndWait()
-        else:
-            engine.say(f"the time is {time.hour}:{time.minute} AM")
-            engine.runAndWait()
+        engine.say(f"the time is {time.hour-12 if time.hour>12 else time.hour} hours {time.minute}minutes {'PM' if time.hour>12 else 'AM'}")
+        engine.runAndWait()
+        engine.runAndWait()
     elif('mail' in chars or 'gmail' in chars):
         os.system('start chrome mail.google.com')
     
