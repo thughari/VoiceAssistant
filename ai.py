@@ -1,4 +1,5 @@
 import os
+from posix import EX_NOHOST
 import random
 import speech_recognition as sr
 import pyttsx3
@@ -94,6 +95,10 @@ try:
         elif(i=='today' or i=='date'):
             today = datetime.date.today()
             engine.say(f"today's date is {today}")
+            engine.runAndWait()
+        elif(i=='time'):
+            time=datetime.datetime.now()
+            engine.say(f"the time is {time.hour}{time.minute}")
             engine.runAndWait()
         
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
