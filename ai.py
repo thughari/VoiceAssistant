@@ -1,5 +1,4 @@
 import os
-from posix import EX_NOHOST
 import random
 import speech_recognition as sr
 import pyttsx3
@@ -53,7 +52,7 @@ try:
             engine.setProperty('voice',voices[0].id)
             engine.say("AND his name is JOHN CENA, YOU can't see me")
             engine.runAndWait()
-            os.system("start chrome https://youtu.be/zu8bEljrolk")
+            os.system(r"C:\Users\harib\Downloads\john.mp4")
         elif(i=='phani' or i=='friend'):
             os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
         elif(i=='hi' or i=='hai' or i=='hello'):
@@ -112,6 +111,7 @@ try:
 
 
 except sr.UnknownValueError:
+    print('didnot heard')
     engine.say('''you said nothing 
     or  i didn't heard you
     sooo
