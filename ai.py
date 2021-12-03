@@ -107,7 +107,9 @@ try:
         
     
         
-    
+except sr.RequestError:
+    engine.say('you are not connected to the nertwork')
+    engine.runAndWait()   
 
 
 except sr.UnknownValueError:
