@@ -52,7 +52,7 @@ try:
             engine.setProperty('voice',voices[0].id)
             engine.say("AND his name is JOHN CENA, YOU can't see me")
             engine.runAndWait()
-            os.system("johncena.mp3")
+            os.system("start chrome https://youtu.be/zu8bEljrolk")
         elif(i=='phani' or i=='friend'):
             os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
         elif(i=='hi' or i=='hai' or i=='hello'):
@@ -91,6 +91,11 @@ try:
             diff=abs(nums[-1]-nums[-2])
             engine.say(f'the difference of the numbers id {diff}')
             engine.runAndWait()
+        elif(i=='today' or i=='date'):
+            today = datetime.date.today()
+            engine.say(f"today's date is {today}")
+            engine.runAndWait()
+        
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
             engine.runAndWait()
