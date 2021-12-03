@@ -109,9 +109,15 @@ try:
         os.system('start chrome mail.google.com')
     
     elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars):
-        engine.say('okay i am exiting..... bye bye, have a good day')
+        engine.say('okay i am exiting..... bye byee!!, have a good day!!!')
         engine.runAndWait()
         exit()
+
+
+
+    else:
+        engine.say("i don't have that feature right now!!")
+        engine.runAndWait()
     
     
         
