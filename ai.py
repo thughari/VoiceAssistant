@@ -97,8 +97,12 @@ try:
             engine.runAndWait()
         elif(i=='time'):
             time=datetime.datetime.now()
-            engine.say(f"the time is {time.hour}{time.minute}")
-            engine.runAndWait()
+            if(time.hour>12):
+                engine.say(f"the time is {time.hour-12}:{time.minute}")
+                engine.runAndWait()
+            else:
+                engine.say(f"the time is {time.hour}:{time.minute}")
+                engine.runAndWait()
         
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
