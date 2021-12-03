@@ -103,6 +103,8 @@ try:
             else:
                 engine.say(f"the time is {time.hour}:{time.minute}")
                 engine.runAndWait()
+        elif(i=='mail' or i=='gmail'):
+            os.system('start chrome mail.google.com')
         
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
