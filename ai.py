@@ -96,10 +96,10 @@ try:
     elif('time' in chars):
         time=datetime.datetime.now()
         if(time.hour>12):
-            engine.say(f"the time is {time.hour-12}:{time.minute}")
+            engine.say(f"the time is {time.hour-12}:{time.minute} PM")
             engine.runAndWait()
         else:
-            engine.say(f"the time is {time.hour}:{time.minute}")
+            engine.say(f"the time is {time.hour}:{time.minute} AM")
             engine.runAndWait()
     elif('mail' in chars or 'gmail' in chars):
         os.system('start chrome mail.google.com')
