@@ -149,7 +149,7 @@ except sr.UnknownValueError:
 
 
 
-exit()
+"""
 os.system('start github')
 engine.say('''hello??
 hii!! how are you
@@ -170,3 +170,4 @@ engine.say("Today's Date is :")
 engine.runAndWait()
 engine.say(today)
 engine.runAndWait()
+"""
