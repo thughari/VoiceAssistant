@@ -72,7 +72,26 @@ try:
                 engine.say('you should mention a range here to pic a random number')
                 engine.runAndWait()
                 break
-
+        elif(i=='sum'):
+            s=sum(nums)
+            engine.say(f'the sum is {s}')
+            engine.runAndWait()
+        elif(i=='divide' or i=='division'):
+            try:
+                div=nums[-2]/nums[-1]
+                engine.say(f'the division is {div}')
+                engine.runAndWait()
+            except ZeroDivisionError:
+                engine.say("you can't devide a number with 0")
+                engine.runAndWait()
+        elif(i=='subtraction' or i=='subtract'):
+            sub=nums[-1]-nums[-2]
+            engine.say(f'the result of subtraction is {sub}')
+            engine.runAndWait()
+        elif(i=='difference'):
+            diff=abs(nums[-1]-nums[-2])
+            engine.say(f'the difference of the numbers id {diff}')
+            engine.runAndWait()
         elif(i=='exit' or i=="don't" or i=='not' or i=='quit'):
             engine.say('okay i am exiting..... bye bye, have a good day')
             engine.runAndWait()
