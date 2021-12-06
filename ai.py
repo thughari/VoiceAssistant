@@ -107,6 +107,10 @@ try:
         engine.runAndWait()
     elif('mail' in chars or 'gmail' in chars):
         os.system('start chrome mail.google.com')
+    elif('song' in chars):
+        os.system('start chrome https://youtu.be/PT2_F-1esPk')
+    elif('matlab' in chars):
+        os.system('start matlab')
     
     elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars):
         engine.say('okay i am exiting..... bye byee!!, have a good day!!!')
