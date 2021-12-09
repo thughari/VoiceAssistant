@@ -5,9 +5,6 @@ import pyttsx3
 import datetime
 
 
-#imports ends here
-
-
 
 engine=pyttsx3.init()
 #change voice and rate
