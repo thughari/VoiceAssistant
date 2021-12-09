@@ -15,8 +15,9 @@ r=sr.Recognizer()
 #recognize with microphone
 try:
     with sr.Microphone() as source:
-        engine.say('speak anything')
+        engine.say('i am listening now...speak anything')
         engine.runAndWait()
+        print("i am listening now...................................................")
         audio=r.listen(source)
     engine.say(audio)
     txt=r.recognize_google(audio)
