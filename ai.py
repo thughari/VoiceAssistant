@@ -4,11 +4,18 @@ import speech_recognition as sr
 import pyttsx3
 import datetime
 
+
+#imports ends here
+
+
+
 engine=pyttsx3.init()
+#change voice and rate
 voices=engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 engine.setProperty('rate',170)
 r=sr.Recognizer()
+#recognize with microphone
 try:
     with sr.Microphone() as source:
         engine.say('speak anything')
@@ -26,13 +33,16 @@ try:
         else:
             chars.append(ret[i])
 
-    
+    #say what i said
     engine.say(f'you said {txt}')
     engine.runAndWait()
-    
+
+    #print what i said
+
     print(f'{txt}\n{ret}\n{chars}\n{nums}')
     
-
+#need to add more conditions..........and switch case too
+#find windows commands to open everything
 
     if('youtube' in chars):
         os.system('start chrome youtube.com')
@@ -69,6 +79,9 @@ try:
         except IndexError:
             engine.say('you should mention a range here to pic a random number')
             engine.runAndWait()
+    
+    #need to work more on the complex math
+
     elif('sum' in chars):
         s=sum(nums)
         engine.say(f'the sum is {s}')
@@ -89,7 +102,7 @@ try:
         diff=abs(nums[-1]-nums[-2])
         engine.say(f'the difference of the numbers id {diff}')
         engine.runAndWait()
-    elif('time' and 'date' in chars):
+    elif('time' and 'date' in chars): #tells both date and time
         today=datetime.datetime.today()
         date=today.date()
         time=today.time()
