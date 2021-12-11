@@ -85,7 +85,7 @@ try:
         engine.say(f'the sum is {s}')
         engine.runAndWait()
         print(s)
-    elif('divide' in chars or 'division' in chars):
+    elif('divide' in chars or 'division' in cha):
         try:
             div=nums[-2]/nums[-1]
             engine.say(f'the division is {div}')
@@ -150,40 +150,3 @@ except sr.UnknownValueError:
     sooo
     i am quitting''')
     engine.runAndWait()
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-"""
-os.system('start github')
-engine.say('''hello??
-hii!! how are you
-hope you are doing great''')
-engine.runAndWait()
-
-today = datetime.date.today()
-
-a = "hari"
-
-engine.say("Hello"+a)
-engine.runAndWait()
-engine.say("I am Jarvis")
-engine.runAndWait()
-engine.say("I am an AI Assistant and can perform a few tasks for you !")
-engine.runAndWait()
-engine.say("Today's Date is :")
-engine.runAndWait()
-engine.say(today)
-engine.runAndWait()
-"""
