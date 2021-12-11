@@ -17,7 +17,7 @@ try:
     with sr.Microphone() as source:
         engine.say('i am listening now...speak anything')
         engine.runAndWait()
-        print('i am listening now...................................................')
+        print('i am listening now')
         audio=r.listen(source)
     engine.say(audio)
     txt=r.recognize_google(audio)
@@ -80,10 +80,11 @@ try:
     
     #need to work more on the complex math
 
-    elif('sum' in chars):
+    elif('sum' in chars or 'addition' in chars or 'add' in chars):
         s=sum(nums)
         engine.say(f'the sum is {s}')
         engine.runAndWait()
+        print(s)
     elif('divide' in chars or 'division' in chars):
         try:
             div=nums[-2]/nums[-1]
