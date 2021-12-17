@@ -85,7 +85,7 @@ try:
         engine.say(f'the sum is {s}')
         engine.runAndWait()
         print(s)
-    elif('divide' in chars or 'division' in cha):
+    elif('divide' in chars or 'division' in chars):
         try:
             div=nums[-2]/nums[-1]
             engine.say(f'the division is {div}')
