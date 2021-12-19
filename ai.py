@@ -1,3 +1,4 @@
+from json.decoder import JSONDecodeError
 import os
 import random
 import speech_recognition as sr
@@ -152,4 +153,7 @@ except sr.RequestError:
 except sr.UnknownValueError:
     print('didnot heard')
     engine.say("you said nothing or  i didn't heard you so i am quitting")
+    engine.runAndWait()
+except JSONDecodeError:
+    engine.say("some error occured")
     engine.runAndWait()
