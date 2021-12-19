@@ -17,12 +17,18 @@ try:
     with sr.Microphone() as source:
         engine.say('i am listening now...speak anything')
         engine.runAndWait()
-        print('i am listening now')
+        print('i am listening now............')
         audio=r.listen(source)
-    engine.say(audio)
     txt=r.recognize_google(audio)
     res=txt.lower()
     ret=res.split()
+    for i in ret:
+        if('/' in i):
+            ret.append('/')
+            ret.remove(i)
+            ret.extend(i.split('/'))
+            
+    print(ret)
     nums=[]
     chars=[]
     for i in range(len(ret)):
@@ -85,13 +91,13 @@ try:
         engine.say(f'the sum is {s}')
         engine.runAndWait()
         print(s)
-    elif('divide' in chars or 'division' in chars):
+    elif('divide' in chars or 'division' in chars or '/' in chars or 'divided' in chars):
         try:
             div=nums[-2]/nums[-1]
             engine.say(f'the division is {div}')
             engine.runAndWait()
         except ZeroDivisionError:
-            engine.say("you can't devide a number with 0")
+            engine.say("it's infinite")
             engine.runAndWait()
     elif('subtraction' in chars or 'subtract' in chars):
         sub=nums[-1]-nums[-2]
@@ -138,15 +144,12 @@ try:
     
         
 except sr.RequestError:
-    print('you are not connected to network')
+    print('you are not connected to Network')
     engine.say('you are not connected to the nertwork')
     engine.runAndWait()
 
 
 except sr.UnknownValueError:
     print('didnot heard')
-    engine.say('''you said nothing 
-    or  i didn't heard you
-    sooo
-    i am quitting''')
+    engine.say("you said nothing or  i didn't heard you so i am quitting")
     engine.runAndWait()
