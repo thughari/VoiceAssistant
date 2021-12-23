@@ -1,4 +1,3 @@
-from json.decoder import JSONDecodeError
 import os
 import random
 import speech_recognition as sr
@@ -6,19 +5,10 @@ import pyttsx3
 import datetime
 
 
-
-engine=pyttsx3.init()
-#change voice and rate
-voices=engine.getProperty('voices')
-engine.setProperty('voice',voices[1].id)
-engine.setProperty('rate',170)
 r=sr.Recognizer()
-#recognize with microphone
-try:
+
+def recognise():
     with sr.Microphone() as source:
-        engine.say('i am listening now...speak anything')
-        engine.runAndWait()
-        print('i am listening now............')
         audio=r.listen(source)
     txt=r.recognize_google(audio)
     res=txt.lower()
@@ -28,8 +18,6 @@ try:
             ret.append('/')
             ret.remove(i)
             ret.extend(i.split('/'))
-            
-    print(ret)
     nums=[]
     chars=[]
     for i in range(len(ret)):
@@ -37,10 +25,26 @@ try:
             nums.append(int(ret[i]))
         else:
             chars.append(ret[i])
+    return [ret,txt,chars,nums]
+
+
+
+engine=pyttsx3.init()
+#change voice and rate
+voices=engine.getProperty('voices')
+engine.setProperty('voice',voices[1].id)
+engine.setProperty('rate',180)
+r=sr.Recognizer()
+def say(a):
+    engine.say(a)
+    engine.runAndWait()
+#recognize with microphone
+try:
+    say('talk something when i finish saying this')
+    ret,txt,chars,nums=recognise()
 
     #say what i said
-    engine.say(f'you said {txt}')
-    engine.runAndWait()
+    say(f'you said {txt}')
 
     #print what i said
 
@@ -51,7 +55,7 @@ try:
 
     if('youtube' in chars):
         os.system('start chrome youtube.com')
-    elif(i=='closer' or i=='song'):
+    elif('closer' in chars or 'song' in chars):
         os.system('start chrome youtu.be/PT2_F-1esPk')
     elif('chrome' in chars):
         os.system('start chrome')
@@ -61,20 +65,20 @@ try:
         os.system('start github')
     elif('whatsapp' in chars):
         os.system('start chrome web.whatsapp.com')
-    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars or'spider-man' in chars):
-        os.system(r"tasm2.mp4")
+    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars):
+        os.system(r'C:\Users\harib\Downloads\spidy.jpg')
     elif('john' in chars or 'cena' in chars or 'johncena' in chars):
         engine.setProperty('voice',voices[0].id)
         engine.say("AND his name is JOHN CENA, YOU can't see me")
         engine.runAndWait()
-        os.system(r"johncena.mp4")
+        os.system(r"C:\Users\harib\Downloads\john.mp4")
     elif('phani' in chars or 'friend' in chars):
         os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
         engine.say(" hii dude, How are you")
         engine.runAndWait()
     elif('who' and 'are' and 'you' in chars):
-        engine.say('i am edith.............your personal voice assistant')
+        engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
         engine.runAndWait()
     elif('pick' in chars or 'random' in chars or 'number' in chars):
         try:
@@ -95,19 +99,25 @@ try:
     elif('divide' in chars or 'division' in chars or '/' in chars or 'divided' in chars):
         try:
             div=nums[-2]/nums[-1]
-            engine.say(f'the division is {div}')
-            engine.runAndWait()
+            say(f'the division is {div}')
+
         except ZeroDivisionError:
-            engine.say("it's infinite")
-            engine.runAndWait()
-    elif('subtraction' in chars or 'subtract' in chars):
-        sub=nums[-1]-nums[-2]
+            say("it's infinite")
+
+        except IndexError:
+            say('at leas two numbers required to perform division')
+
+    elif('subtraction' in chars or 'subtract' in chars or '-' in chars):
+        sub=nums[-2]-nums[-1]
         engine.say(f'the result of subtraction is {sub}')
         engine.runAndWait()
     elif('difference' in chars):
-        diff=abs(nums[-1]-nums[-2])
-        engine.say(f'the difference of the numbers id {diff}')
-        engine.runAndWait()
+        try:
+            diff=abs(nums[-1]-nums[-2])
+            engine.say(f'the difference of the numbers is {diff}')
+            engine.runAndWait()
+        except IndexError:
+            say('two numbers required to find difference')
     elif('time' and 'date' in chars): #tells both date and time
         today=datetime.datetime.today()
         date=today.date()
@@ -115,7 +125,7 @@ try:
         print(today,date,time)
         engine.say(f"today's date is {date} and time is {time.hour-12 if time.hour>12 else time.hour} hours {time.minute} minutes {'PM' if time.hour>12 else 'AM'}")
         engine.runAndWait()
-    elif('today' in chars or 'date' in chars):
+    elif('today' in chars or 'date' in chars or 'day' in chars):
         today = datetime.date.today()
         engine.say(f"today's date is {today}")
         engine.runAndWait()
@@ -130,7 +140,58 @@ try:
         os.system('start chrome https://youtu.be/PT2_F-1esPk')
     elif('matlab' in chars):
         os.system('start matlab')
-    
+    elif('shut' and 'down' in chars or 'shutdown' in chars):
+        ###############################################################################################
+        try:
+            f=0
+            if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
+                t=nums[-1]
+                say(f'shutting down your computer in {t} seconds..')
+                st='shutdown /s /t '+str(t)
+                os.system(st)
+                f=1
+                exit()
+            elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
+                t=nums[-1]*60
+                say(f'shutting down your computer in {t} seconds..')
+                st='shutdown /s /t '+str(t)
+                os.system(st)
+                f=1
+                exit()
+            say('are you sure you want to shut down your system?')
+            ch=recognise()[-2]
+            if(('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch) and f==0):
+                os.system('shutdown /s /t 1')
+            else:
+                say("okay, i won't shutdown")
+        except IndexError:
+            say('you have to say some, time here')
+    elif('restart' in chars or 'repair' in chars or 'reboot' in chars):
+        ################################################################################################
+        try:
+            f=0
+            if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
+                t=nums[-1]
+                say(f'restarting your computer in {t} seconds..')
+                st='shutdown /r /t '+str(t)
+                os.system(st)
+                f=1
+                exit()
+            elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
+                t=nums[-1]*60
+                say(f'restarting your computer in {t} seconds..')
+                st='shutdown /r /t '+str(t)
+                os.system(st)
+                f=1
+                exit()
+            say('are you sure you want to restart your system?')
+            ch=recognise()[-2]
+            if(('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch) and f==0):
+                os.system('shutdown /r /t 1')
+            else:
+                say("okay, i won't restart")
+        except IndexError:
+            say('you have to say some, time here')
     elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars):
         engine.say('okay i am exiting..... bye byee!!, have a good day!!!')
         engine.runAndWait()
@@ -139,9 +200,7 @@ try:
 
 
     else:
-        engine.say("i don't have that feature right now!!")
-        engine.runAndWait()
-    
+        say("i don't have that feature right now!!")
     
         
 except sr.RequestError:
@@ -153,7 +212,4 @@ except sr.RequestError:
 except sr.UnknownValueError:
     print('didnot heard')
     engine.say("you said nothing or  i didn't heard you so i am quitting")
-    engine.runAndWait()
-except JSONDecodeError:
-    engine.say("some error occured")
     engine.runAndWait()
