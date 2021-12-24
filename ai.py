@@ -118,7 +118,7 @@ try:
             engine.runAndWait()
         except IndexError:
             say('two numbers required to find difference')
-    elif('time' and 'date' in chars): #tells both date and time
+    elif('time'in chars and 'date' in chars): #tells both date and time
         today=datetime.datetime.today()
         date=today.date()
         time=today.time()
@@ -213,3 +213,5 @@ except sr.UnknownValueError:
     print('didnot heard')
     engine.say("you said nothing or  i didn't heard you so i am quitting")
     engine.runAndWait()
+except:
+    say('some error occured')
