@@ -65,8 +65,8 @@ try:
         os.system('start github')
     elif('whatsapp' in chars):
         os.system('start chrome web.whatsapp.com')
-    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars):
-        os.system(r'C:\Users\harib\Downloads\spidy.jpg')
+    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars or 'spider-man' in chars):
+        os.system(r'tasm2.mp4')
     elif('john' in chars or 'cena' in chars or 'johncena' in chars):
         engine.setProperty('voice',voices[0].id)
         engine.say("AND his name is JOHN CENA, YOU can't see me")
@@ -77,7 +77,7 @@ try:
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
         engine.say(" hii dude, How are you")
         engine.runAndWait()
-    elif('who' and 'are' and 'you' in chars):
+    elif('who' in chars and 'are' in chars and 'you' in chars):
         engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
         engine.runAndWait()
     elif('pick' in chars or 'random' in chars or 'number' in chars):
