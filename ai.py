@@ -91,7 +91,7 @@ try:
     
     #need to work more on the complex math
 
-    elif('sum' in chars or 'addition' in chars or 'add' in chars):
+    elif('sum' in chars or 'addition' in chars or 'add' in chars or '+' in chars):
         s=sum(nums)
         engine.say(f'the sum is {s}')
         engine.runAndWait()
