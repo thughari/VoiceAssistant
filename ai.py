@@ -143,24 +143,22 @@ try:
     elif('shut' and 'down' in chars or 'shutdown' in chars):
         ###############################################################################################
         try:
-            f=0
+
             if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
                 t=nums[-1]
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
                 os.system(st)
-                f=1
                 exit()
             elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
                 t=nums[-1]*60
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
                 os.system(st)
-                f=1
                 exit()
             say('are you sure you want to shut down your system?')
             ch=recognise()[-2]
-            if(('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch) and f==0):
+            if('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch):
                 os.system('shutdown /s /t 1')
             else:
                 say("okay, i won't shutdown")
@@ -169,24 +167,22 @@ try:
     elif('restart' in chars or 'repair' in chars or 'reboot' in chars):
         ################################################################################################
         try:
-            f=0
+
             if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
                 t=nums[-1]
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
                 os.system(st)
-                f=1
                 exit()
-            elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
+            elif(('in' in chars and 'minutes' in chars)or('in' in chars and 'minute' in chars)):
                 t=nums[-1]*60
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
                 os.system(st)
-                f=1
                 exit()
             say('are you sure you want to restart your system?')
             ch=recognise()[-2]
-            if(('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch) and f==0):
+            if('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch):
                 os.system('shutdown /r /t 1')
             else:
                 say("okay, i won't restart")
