@@ -4,6 +4,11 @@ import speech_recognition as sr
 import pyttsx3
 import datetime
 
+#going to add google search
+s='closer song'
+s=s.replace(' ','+')
+print(s)
+os.system(f"start chrome https://www.google.com/search?q={s}")
 
 r=sr.Recognizer()
 
