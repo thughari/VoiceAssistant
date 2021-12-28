@@ -4,11 +4,7 @@ import speech_recognition as sr
 import pyttsx3
 import datetime
 
-#going to add google search
-s='closer song'
-s=s.replace(' ','+')
-print(s)
-os.system(f"start chrome https://www.google.com/search?q={s}")
+
 
 r=sr.Recognizer()
 
@@ -16,8 +12,8 @@ def recognise():
     with sr.Microphone() as source:
         audio=r.listen(source)
     txt=r.recognize_google(audio)
-    res=txt.lower()
-    ret=res.split()
+    str=txt.lower()
+    ret=str.split()
     for i in ret:
         if('/' in i):
             ret.append('/')
@@ -30,7 +26,7 @@ def recognise():
             nums.append(int(ret[i]))
         else:
             chars.append(ret[i])
-    return [ret,txt,chars,nums]
+    return [ret,str,chars,nums]
 
 
 
@@ -91,7 +87,7 @@ try:
             engine.say(f'i am picking {rnd}')
             engine.runAndWait()
         except IndexError:
-            engine.say('you should mention a range here to pic a random number')
+            engine.say('you should mention a range here to pick a random number')
             engine.runAndWait()
     
     #need to work more on the complex math
@@ -193,6 +189,17 @@ try:
                 say("okay, i won't restart")
         except IndexError:
             say('you have to say some, time here')
+
+    #going to add google search
+
+    elif('what'in chars):
+        ######################################################error here focus here########################
+        txt=txt.replace(' ','+')
+        print(txt)
+        os.system(f'start chrome https://www.google.com/search?q={txt}')
+
+
+
     elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars):
         engine.say('okay i am exiting..... bye byee!!, have a good day!!!')
         engine.runAndWait()
@@ -214,5 +221,3 @@ except sr.UnknownValueError:
     print('didnot heard')
     engine.say("you said nothing or  i didn't heard you so i am quitting")
     engine.runAndWait()
-except:
-    say('some error occured')
