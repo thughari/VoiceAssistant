@@ -192,7 +192,7 @@ try:
 
     #going to add google search
 
-    elif('what'in chars):
+    elif('what'in chars or 'play' in chars):
         ######################################################error here focus here########################
         txt=txt.replace(' ','+')
         print(txt)
