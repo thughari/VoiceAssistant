@@ -78,7 +78,7 @@ try:
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
         engine.say(" hii dude, How are you")
         engine.runAndWait()
-    elif('who' in chars and 'are' in chars and 'you' in chars):
+    elif(('who' in chars and 'are' in chars and 'you' in chars)or('what' in chars and 'can' in chars and 'you' in chars and 'do' in chars)):
         engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
         engine.runAndWait()
     elif('pick' in chars or 'random' in chars or 'number' in chars):
