@@ -208,7 +208,10 @@ try:
 
 
     else:
-        say("i don't have that feature right now!!")
+        txt=txt.replace(' ','+')
+        print(txt)
+        os.system(f'start chrome https://www.google.com/search?q={txt}')
+        say("Here are the results form web")
     
         
 except sr.RequestError:
