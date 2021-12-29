@@ -211,7 +211,7 @@ try:
         txt=txt.replace(' ','+')
         print(txt)
         os.system(f'start chrome https://www.google.com/search?q={txt}')
-        say("Here are the results form web")
+        say("Here are the results from web")
     
         
 except sr.RequestError:
