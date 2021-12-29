@@ -6,7 +6,7 @@ import datetime
 
 
 
-r=sr.Recognizer()
+
 
 def recognise():
     with sr.Microphone() as source:
