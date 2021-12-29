@@ -12,13 +12,13 @@ def recognise():
     with sr.Microphone() as source:
         audio=r.listen(source)
     txt=r.recognize_google(audio)
-    str=txt.lower()
-    ret=str.split()
+    st=txt.lower()
+    ret=st.split()
     for i in ret:
         if('/' in i):
             ret.append('/')
-            ret.remove(i)
             ret.extend(i.split('/'))
+            ret.remove(i)
     nums=[]
     chars=[]
     for i in range(len(ret)):
@@ -26,7 +26,7 @@ def recognise():
             nums.append(int(ret[i]))
         else:
             chars.append(ret[i])
-    return [ret,str,chars,nums]
+    return [ret,st,chars,nums]
 
 
 
