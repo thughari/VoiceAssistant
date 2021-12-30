@@ -76,8 +76,22 @@ try:
     elif('phani' in chars or 'friend' in chars):
         os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
-        engine.say(" hii dude, How are you")
+        engine.say(" hii dude, what's your name?")
         engine.runAndWait()
+        ch=recognise()[-2]
+        if 'i' in ch:
+            ch.remove('i')
+        if 'am' in ch:
+            ch.remove('am')
+        if 'my' in ch:
+            ch.remove('my')
+        if 'name' in ch:
+            ch.remove('name')
+        if 'is' in ch:
+            ch.remove('is')
+        name=' '.join(ch)
+        say(f'hiii   {name}, how are you doing?')
+        print(f'hii {name} how are you doing?')
     elif(('who' in chars and 'are' in chars and 'you' in chars)or('what' in chars and 'can' in chars and 'you' in chars and 'do' in chars)):
         engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
         engine.runAndWait()
