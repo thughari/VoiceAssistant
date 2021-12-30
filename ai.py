@@ -160,13 +160,19 @@ try:
         try:
 
             if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
-                t=nums[-1]
+                if('a' in chars):
+                    t=1
+                else:
+                    t=nums[-1]
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
                 os.system(st)
                 exit()
             elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
-                t=nums[-1]*60
+                if('a' in chars):
+                    t=1*60
+                else:
+                    t=nums[-1]*60
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
                 os.system(st)
@@ -184,13 +190,19 @@ try:
         try:
 
             if(('in' and 'seconds' in chars)or('in' and 'second' in chars)):
-                t=nums[-1]
+                if('a' in chars):
+                    t=1
+                else:
+                    t=nums[-1]
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
                 os.system(st)
                 exit()
             elif(('in' in chars and 'minutes' in chars)or('in' in chars and 'minute' in chars)):
-                t=nums[-1]*60
+                if('a' in chars):
+                    t=1*60
+                else:
+                    t=nums[-1]*60
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
                 os.system(st)
