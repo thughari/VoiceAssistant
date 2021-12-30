@@ -66,8 +66,12 @@ try:
         os.system('start github')
     elif('whatsapp' in chars):
         os.system('start chrome web.whatsapp.com')
-    elif('spider' in chars or 'peter' in chars or 'parker' in chars or 'spiderman' in chars or 'spider-man' in chars):
+    elif(('all' in chars and 'peter' in chars) or ('all' in chars and 'spider-man' in chars)):
+        os.system(r'peters.jpg')
+    elif('spider' in chars or 'spiderman' in chars or 'spider-man' in chars):
         os.system(r'tasm2.mp4')
+    elif('peter' in chars or 'parker' in chars):
+        os.system(r'peter.mp4')
     elif('john' in chars or 'cena' in chars or 'johncena' in chars):
         engine.setProperty('voice',voices[0].id)
         engine.say("AND his name is JOHN CENA, YOU can't see me")
