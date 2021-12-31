@@ -240,7 +240,7 @@ try:
         txt=txt.replace(' ','+')
         print(txt)
         os.system(f'start chrome https://www.google.com/search?q={txt}')
-    if('translate' in chars):
+    elif('translate' in chars):
         a=chars.index('translate')
         if(chars[a+1]=='this'):
             chars.remove('translate')
@@ -263,8 +263,9 @@ try:
 
     else:
         txt=txt.replace(' ','+')
+        txt='start chrome https://www.google.com/search?q='+txt
         print(txt)
-        os.system(f'start chrome https://www.google.com/search?q={txt}')
+        os.system(txt)
         say("Here are the results from web")
     
         
