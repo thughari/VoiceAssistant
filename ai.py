@@ -240,6 +240,17 @@ try:
         txt=txt.replace(' ','+')
         print(txt)
         os.system(f'start chrome https://www.google.com/search?q={txt}')
+    if('translate' in chars):
+        a=chars.index('translate')
+        if(chars[a+1]=='this'):
+            chars.remove('translate')
+            chars.remove('this')
+        else:
+            chars.remove('translate')
+        se='%20'.join(chars)
+        print(se)
+        c='https://translate.google.co.in/?sl=auto&tl=te&text='+se+'%0A&op=translate'
+        os.system(f'start chrome "{c}"')
 
 
 
