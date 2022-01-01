@@ -1,4 +1,4 @@
-import os
+from os import system
 import random
 import speech_recognition as sr
 import pyttsx3
@@ -55,30 +55,30 @@ try:
 #find windows commands to open everything
 
     if('youtube' in chars):
-        os.system('start chrome youtube.com')
+        system('start chrome youtube.com')
     elif('closer' in chars or 'song' in chars):
-        os.system('start chrome youtu.be/PT2_F-1esPk')
+        system('start chrome youtu.be/PT2_F-1esPk')
     elif('chrome' in chars):
-        os.system('start chrome')
+        system('start chrome')
     elif('brave' in chars):
-        os.system('start brave')
+        system('start brave')
     elif('github' in chars):
-        os.system('start github')
+        system('start github')
     elif('whatsapp' in chars):
-        os.system('start chrome web.whatsapp.com')
+        system('start chrome web.whatsapp.com')
     elif(('all' in chars and 'peter' in chars) or ('all' in chars and 'spider-man' in chars)):
-        os.system(r'peters.jpg')
+        system(r'peters.jpg')
     elif('spider' in chars or 'spiderman' in chars or 'spider-man' in chars):
-        os.system(r'tasm2.mp4')
+        system(r'tasm2.mp4')
     elif('peter' in chars or 'parker' in chars):
-        os.system(r'peter.mp4')
+        system(r'peter.mp4')
     elif('john' in chars or 'cena' in chars or 'johncena' in chars):
         engine.setProperty('voice',voices[0].id)
         engine.say("AND his name is JOHN CENA, YOU can't see me")
         engine.runAndWait()
-        os.system(r"C:\Users\harib\Downloads\john.mp4")
+        system(r"C:\Users\harib\Downloads\john.mp4")
     elif('phani' in chars or 'friend' in chars):
-        os.system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
+        system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
         engine.say(" hii dude, what's your name?")
         engine.runAndWait()
@@ -167,11 +167,11 @@ try:
         engine.runAndWait()
         engine.runAndWait()
     elif('mail' in chars or 'gmail' in chars):
-        os.system('start chrome mail.google.com')
+        system('start chrome mail.google.com')
     elif('song' in chars):
-        os.system('start chrome https://youtu.be/PT2_F-1esPk')
+        system('start chrome https://youtu.be/PT2_F-1esPk')
     elif('matlab' in chars):
-        os.system('start matlab')
+        system('start matlab')
     elif('shut' and 'down' in chars or 'shutdown' in chars):
         ###############################################################################################
         try:
@@ -183,7 +183,7 @@ try:
                     t=nums[-1]
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
-                os.system(st)
+                system(st)
                 exit()
             elif(('in' and 'minutes' in chars)or('in' and 'minute' in chars)):
                 if('a' in chars):
@@ -192,12 +192,12 @@ try:
                     t=nums[-1]*60
                 say(f'shutting down your computer in {t} seconds..')
                 st='shutdown /s /t '+str(t)
-                os.system(st)
+                system(st)
                 exit()
             say('are you sure you want to shut down your system?')
             ch=recognise()[-2]
             if('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch):
-                os.system('shutdown /s /t 1')
+                system('shutdown /s /t 1')
             else:
                 say("okay, i won't shutdown")
         except IndexError:
@@ -213,7 +213,7 @@ try:
                     t=nums[-1]
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
-                os.system(st)
+                system(st)
                 exit()
             elif(('in' in chars and 'minutes' in chars)or('in' in chars and 'minute' in chars)):
                 if('a' in chars):
@@ -222,12 +222,12 @@ try:
                     t=nums[-1]*60
                 say(f'restarting your computer in {t} seconds..')
                 st='shutdown /r /t '+str(t)
-                os.system(st)
+                system(st)
                 exit()
             say('are you sure you want to restart your system?')
             ch=recognise()[-2]
             if('yes' in ch or 'y' in ch or 'ok' in ch or 'why' in ch):
-                os.system('shutdown /r /t 1')
+                system('shutdown /r /t 1')
             else:
                 say("okay, i won't restart")
         except IndexError:
@@ -239,7 +239,7 @@ try:
         ######################################################error here focus here########################
         txt=txt.replace(' ','+')
         print(txt)
-        os.system(f'start chrome https://www.google.com/search?q={txt}')
+        system(f'start chrome https://www.google.com/search?q={txt}')
     elif('translate' in chars):
         a=chars.index('translate')
         if(chars[a+1]=='this'):
@@ -250,7 +250,7 @@ try:
         se='%20'.join(chars)
         print(se)
         c='https://translate.google.co.in/?sl=auto&tl=te&text='+se+'%0A&op=translate'
-        os.system(f'start chrome "{c}"')
+        system(f'start chrome "{c}"')
 
 
 
@@ -265,7 +265,7 @@ try:
         txt=txt.replace(' ','+')
         txt='start chrome https://www.google.com/search?q='+txt
         print(txt)
-        os.system(txt)
+        system(txt)
         say("Here are the results from web")
     
         
