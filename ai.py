@@ -78,7 +78,7 @@ try:
         engine.runAndWait()
         system(r"C:\Users\harib\Downloads\john.mp4")
     elif('phani' in chars or 'friend' in chars):
-        system("start chrome https://youtu.be/AE8eBai0lEk?t=6673")
+        system("start chrome https://youtu.be/dDWCCHbb3zs?t=362")
     elif('hi' in chars or 'hai' in chars or 'hello' in chars):
         engine.say(" hii dude, what's your name?")
         engine.runAndWait()
