@@ -1,5 +1,5 @@
 from os import system
-import random
+from random import randint
 import speech_recognition as sr
 import pyttsx3
 import datetime
@@ -114,7 +114,7 @@ try:
         engine.runAndWait()
     elif('pick' in chars or 'random' in chars or 'number' in chars):
         try:
-            rnd=random.randint(nums[-2],nums[-1])
+            rnd=randint(nums[-2],nums[-1])
             engine.say(f'i am picking {rnd}')
             engine.runAndWait()
         except IndexError:
