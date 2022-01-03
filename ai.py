@@ -97,18 +97,34 @@ try:
         say(f'hiii   {name}, how are you doing?')
         print(f'hii {name} how are you doing?')
     elif('birthday' in chars):
-        if 'happy' in chars:
-            chars.remove('happy')
-        if 'birthday' in chars:
-            chars.remove('birthday')
-        if 'to' in chars:
-            chars.remove('to')
-        if 'you' in chars:
-            chars.remove('you')
-        if 'say' in chars:
-            chars.remove('say')
-        name=' '.join(chars)
+        if('me' in chars):
+            say("what do you mean by me, I don't know your name, tell me your name")
+            ch=recognise()[-2]
+            if 'i' in ch:
+                ch.remove('i')
+            if 'am' in ch:
+                ch.remove('am')
+            if 'my' in ch:
+                ch.remove('my')
+            if 'name' in ch:
+                ch.remove('name')
+            if 'is' in ch:
+                ch.remove('is')
+            name=' '.join(ch)
+        else:
+            if 'happy' in chars:
+                chars.remove('happy')
+                chars.remove('birthday')
+            if 'to' in chars:
+                chars.remove('to')
+            if 'you' in chars:
+                chars.remove('you')
+            if 'say' in chars:
+                chars.remove('say')
+            name=' '.join(chars)
+        
         say(f'wish you a many more happy returns of the day {name}')
+        
     elif(('who' in chars and 'are' in chars and 'you' in chars)or('what' in chars and 'can' in chars and 'you' in chars and 'do' in chars)):
         engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
         engine.runAndWait()
