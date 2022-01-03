@@ -58,7 +58,7 @@ try:
         system('start chrome youtube.com')
     elif('closer' in chars or 'song' in chars):
         system('start chrome youtu.be/PT2_F-1esPk')
-    elif('chrome' in chars):
+    elif('chrome' in chars or 'browser' in chars):
         system('start chrome')
     elif('brave' in chars):
         system('start brave')
