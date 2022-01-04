@@ -8,6 +8,9 @@ import datetime
 
 
 
+r=sr.Recognizer()
+
+
 def recognise():
     with sr.Microphone() as source:
         audio=r.listen(source)
@@ -35,7 +38,8 @@ engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 engine.setProperty('rate',180)
-r=sr.Recognizer()
+
+
 def say(a):
     engine.say(a)
     engine.runAndWait()
