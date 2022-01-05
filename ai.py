@@ -71,6 +71,9 @@ def saying():
             system('start github')
         elif('whatsapp' in chars):
             system('start chrome web.whatsapp.com')
+        elif('what' in chars and 'your' in chars and 'name' in chars):
+            say("i actually don't have a name yet")
+            saying()
         elif(('my' in chars and 'name' in chars)or('i' in chars and 'am' in chars)):
             if 'i' in chars:
                 chars.remove('i')
