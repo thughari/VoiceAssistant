@@ -16,6 +16,7 @@ def recognise():
         audio=r.listen(source)
     txt=r.recognize_google(audio)
     st=txt.lower()
+    
     ret=st.split()
     for i in ret:
         if('/' in i):
@@ -87,6 +88,12 @@ def saying():
                 chars.remove('is')
             name=' '.join(chars)
             say(f'hii  {name}, what can i do for you')
+            saying()
+        elif('how' in chars and 'are' in chars and 'you' in chars):
+            say('i am doing great, what about you...')
+            saying()
+        elif('not' in chars and ('good' in chars or 'fine' in chars)):
+            say('what happend to you mann')
             saying()
         elif(('all' in chars and 'peter' in chars) or ('all' in chars and 'spider-man' in chars)):
             system(r'peters.jpg')
