@@ -75,7 +75,7 @@ def saying():
         elif('what' in chars and 'your' in chars and 'name' in chars):
             say("i actually don't have a name yet")
             saying()
-        elif(('my' in chars and 'name' in chars)or('i' in chars and 'am' in chars)):
+        elif(('my' in chars and 'name' in chars)or('i' in chars and 'am' in chars)or('say' in chars and 'to' in chars)):
             if 'i' in chars:
                 chars.remove('i')
             if 'am' in chars:
@@ -86,6 +86,8 @@ def saying():
                 chars.remove('name')
             if 'is' in chars:
                 chars.remove('is')
+            if 'say' in chars:
+                chars.remove('say')
             name=' '.join(chars)
             say(f'hii  {name}, what can i do for you')
             saying()
