@@ -3,7 +3,7 @@ from random import randint
 import speech_recognition as sr
 import pyttsx3
 import datetime
-
+from word2number import w2n
 
 
 
@@ -16,13 +16,18 @@ def recognise():
         audio=r.listen(source)
     txt=r.recognize_google(audio)
     st=txt.lower()
-    
+
     ret=st.split()
     for i in ret:
         if('/' in i):
             ret.append('/')
             ret.extend(i.split('/'))
             ret.remove(i)
+    for i in ret:
+        try:
+            i=w2n.word_to_num(i)
+        except(ValueError):
+            pass
     nums=[]
     chars=[]
     for i in range(len(ret)):
@@ -51,7 +56,7 @@ def saying():
         ret,txt,chars,nums=recognise()
 
         #say what i said
-        say(f'you said {txt}')
+        #say(f'you said {txt}')
 
         #print what i said
 
@@ -108,7 +113,7 @@ def saying():
             engine.say("AND his name is JOHN CENA, YOU can't see me")
             engine.runAndWait()
             system(r'johncena.mp4')
-        elif('phani' in chars or 'friend' in chars):
+        elif('phani' in chars or 'friend' in chars or 'friends' in chars):
             system("start chrome https://youtu.be/dDWCCHbb3zs?t=362")
         elif('hi' in chars or 'hai' in chars or 'hello' in chars):
             engine.say(" hii dude, what's your name?")
@@ -162,6 +167,7 @@ def saying():
         elif(('who' in chars and 'are' in chars and 'you' in chars)or('what' in chars and 'can' in chars and 'you' in chars and 'do' in chars)):
             engine.say('i am edith.............your personal voice assistant...i can do some daily tasks for you')
             engine.runAndWait()
+            saying()
         elif('pick' in chars or 'random' in chars or 'number' in chars):
             try:
                 rnd=randint(nums[-2],nums[-1])
@@ -286,7 +292,7 @@ def saying():
         #going to add google search
 
         elif('what'in chars or 'play' in chars):
-            ######################################################error here focus here########################
+            #####error here focus here#####
             txt=txt.replace(' ','+')
             print(txt)
             system(f'start chrome https://www.google.com/search?q={txt}')
@@ -304,7 +310,7 @@ def saying():
 
 
 
-        elif('exit' in chars or "don't" in chars or 'not' in chars or 'quit' in chars or 'nothing' in chars):
+        elif('exit' in chars or ("don't" and "talk") in chars or 'not' in chars or 'quit' in chars or 'nothing' in chars):
             engine.say('okay i am exiting..... bye byee!!, have a good day!!!')
             engine.runAndWait()
             exit()
@@ -327,11 +333,11 @@ def saying():
 
     except sr.UnknownValueError:
         print('didnot heard')
-        engine.say("you said nothing or  i didn't heard you so i am quitting")
+        engine.say("Sorry..I Didn't heard that")
         engine.runAndWait()
 
 
 
 
-say('talk something when i finish saying this')
+say('hello')
 saying()
